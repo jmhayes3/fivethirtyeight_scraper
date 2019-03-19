@@ -8,7 +8,6 @@ class GamesSpider(scrapy.Spider):
         yield scrapy.Request('https://projects.fivethirtyeight.com/2019-nba-predictions/games/', self.parse)
 
     def parse(self, response):
-        # get the data and write it to scrapy items
         days = response.xpath("//div[@id='upcoming-days']/section | //div[@id='completed-days']/section")
         upcoming_days = response.xpath("//div[@id='upcoming-days']/section")
         completed_days = response.xpath("//div[@id='completed-days']/section")
